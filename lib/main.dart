@@ -36,9 +36,17 @@ class _InputPageState extends State<InputPage> {
       body: Center(
         child: Text('Body Text'),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {},
+      /* Tener aun mas control de cada widget envolviendo con Theme */
+      floatingActionButton: Theme(
+        data: ThemeData(
+          floatingActionButtonTheme: FloatingActionButtonThemeData(
+            backgroundColor: Colors.red,
+          ),
+        ),
+        child: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () {},
+        ),
       ),
     );
   }
