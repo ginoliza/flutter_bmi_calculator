@@ -45,3 +45,10 @@ final myFinal = DateTime.now();
 // no es valido
 const myConst = DateTime.now();
 ```
+## Widgets propios
+FALTA AGREGAR
+
+## Widget GestureDetector
+Podriamos usar `TextButton` pero este afecta el ancho de nuestro boton, y otros estilos mas. Sólo necesitamos detectar un toque. Podemos usar en su lugar `GestureDetector`. 
+
+Su método `onTap` es igual al `onpressed` del `TextButton` pero este `GestureDetector` no afecta el estilo del contenedor.
