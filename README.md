@@ -52,3 +52,10 @@ FALTA AGREGAR
 Podriamos usar `TextButton` pero este afecta el ancho de nuestro boton, y otros estilos mas. Sólo necesitamos detectar un toque. Podemos usar en su lugar `GestureDetector`. 
 
 Su método `onTap` es igual al `onpressed` del `TextButton` pero este `GestureDetector` no afecta el estilo del contenedor.
+
+## Enums
+Como un booleano pero con mas opciones, y mas expresivo ya que podemos asignar los valores que queramos
+```dart
+enum CarType{suv, hatchback, convertible, coupe}
+print(Carype.suv);
+```
