@@ -59,3 +59,70 @@ Como un booleano pero con mas opciones, y mas expresivo ya que podemos asignar l
 enum CarType{suv, hatchback, convertible, coupe}
 print(Carype.suv);
 ```
+
+## Ternary operator
+Escribe un if de manera mas corta
+```dart
+if(condición){
+//   codigo si se cumple
+}
+else{
+//   codigo si no se cumple
+}
+```
+```dart
+condición? //   codigo si se cumple : //   codigo si no se cumple;
+```
+
+## Higher-order functions
+Podemos pasar funciones como parametros de otras funciones con las funciones de orden mayor:
+```dart
+final Function calculator = (int x, int y, Function calculation){
+  return calculation(x, y);
+};
+
+int multiply(int x, int y){
+  return x * y;
+}
+
+int add(int x, int y){
+  return x + y;
+}
+
+void main(){  
+  print(calculator(3, 5, add));
+  print(calculator(3, 5, multiply));
+}
+```
+
+Con clases:
+```dart
+class Car{
+  Function drive;
+  
+  Car(this.drive);
+}
+
+Function? driveSlow(){
+  print("driving slow");
+}
+
+Function? driveFast(){
+  print("driving fast");
+}
+
+void main(){
+  Car myCar = Car(driveSlow);
+  // No llama al método
+  print(myCar.drive); // <- Closure 'driveSlow'
+  
+  // Si llama al método
+  myCar.drive(); // <- driving slow
+  
+  // Cambiamos la funcion asignada
+  myCar.drive = driveFast;
+  
+  // Si llama al método
+  myCar.drive(); // <- driving fast
+}
+```
