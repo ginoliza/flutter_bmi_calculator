@@ -126,3 +126,36 @@ void main(){
   myCar.drive(); // <- driving fast
 }
 ```
+
+## Constantes
+Es buena idea separar las constantes en otro archivo `constants.dart` que contenga colores predeterminados, estilos de texto, etc. Y luego simplemente importar ese archivo en los demas archivos `.dart`
+
+## Baseline
+Para que los elemento esten alineados a la base de una fila se usa el `baseline`
+```dart
+Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    crossAxisAlignment: CrossAxisAlignment.baseline,
+    textBaseline: TextBaseline.alphabetic,
+    children: [
+        Text(), // texto grande
+        Text()  // texto pequeño
+    ],
+),
+```
+## Slider widget
+```dart
+Slider(
+    value: height.toDouble(), // required
+    min: 120.0, // valor minimo
+    max: 220.0, // valor maximo
+    activeColor: Color(0xffeb1555), // color izquierda del punto
+    inactiveColor: Color(0xff8d8e98), // color derecha del punto
+    //required
+    onChanged: (double newValue) {      
+      setState(() {
+        height = newValue.round(); 
+      });
+    },
+  ),
+```
