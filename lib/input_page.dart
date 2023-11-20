@@ -83,18 +83,34 @@ class _InputPageState extends State<InputPage> {
                       )
                     ],
                   ),
-                  Slider(
-                    value: height.toDouble(), // required
-                    min: 120.0,
-                    max: 220.0,
-                    activeColor: Color(0xffeb1555),
-                    inactiveColor: Color(0xff8d8e98),
-                    onChanged: (double newValue) {
-                      //required
-                      setState(() {
-                        height = newValue.round();
-                      });
-                    },
+                  SliderTheme(
+                    data: SliderTheme.of(context).copyWith(
+                      // color a la derecha del thumb
+                      inactiveTrackColor: Color(0xff8d8e98),
+                      // color a la izquierda del thumb
+                      activeTrackColor: Colors.white,
+                      // color del thumb
+                      thumbColor: Color(0xffeb1555),
+                      // color del thumb presionado
+                      overlayColor: Color(0x29eb1555),
+                      // radio del thumb
+                      thumbShape:
+                          RoundSliderThumbShape(enabledThumbRadius: 15.0),
+                      // radio del thumb presionado
+                      overlayShape:
+                          RoundSliderOverlayShape(overlayRadius: 30.0),
+                    ),
+                    child: Slider(
+                      value: height.toDouble(), // required
+                      min: 120.0,
+                      max: 220.0,
+                      onChanged: (double newValue) {
+                        //required
+                        setState(() {
+                          height = newValue.round();
+                        });
+                      },
+                    ),
                   ),
                 ],
               ),

@@ -159,3 +159,32 @@ Slider(
     },
   ),
 ```
+
+## Personalizar widgets en general
+Se puede lograr con constructores de la clase `ThemeData`, por ejemplo para el slider podemos usar `SliderTheme`, de data le pasamos una copia del estado actual de la aplicacion con `.of(context)`. Ya que solo queremos modificar algunos valores del theme, agregamos `copywith()` y cambiamos algunos parametros.
+```dart
+SliderTheme(
+    data: SliderTheme.of(context).copyWith(
+      
+      inactiveTrackColor: Color(0xff8d8e98),
+      activeTrackColor: Colors.white,
+      thumbColor: Color(0xffeb1555),
+      overlayColor: Color(0x29eb1555),
+      thumbShape:
+          RoundSliderThumbShape(enabledThumbRadius: 15.0),
+      overlayShape:
+          RoundSliderOverlayShape(overlayRadius: 30.0),
+    ),
+    child: Slider(
+      value: height.toDouble(), // required
+      min: 120.0,
+      max: 220.0,
+      onChanged: (double newValue) {
+        //required
+        setState(() {
+          height = newValue.round();
+        });
+      },
+    ),
+  ),
+```
