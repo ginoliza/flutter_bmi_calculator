@@ -188,3 +188,33 @@ SliderTheme(
     ),
   ),
 ```
+
+## Composicion vs Herencia 
+
+En la mayoria de lenguajes se usa herencia a partir de otras cosas, en `Flutter` se usa composición.
+
+Podemos armar widgets desde 0 usando componentes primitivos, por ejemplo en lugar del `FloatingActionButton` creamos nuestro propio `RoundIconButton`:
+
+```dart
+class RoundIconButton extends StatelessWidget {
+  RoundIconButton({required this.icon, required this.onPressed});
+
+  final IconData icon;
+  final Function() onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      onPressed: onPressed,
+      elevation: 10.0,
+      shape: CircleBorder(),
+      fillColor: Color(0xff4c4f5e),
+      constraints: BoxConstraints.tightFor(
+        height: 56.0,
+        width: 56.0,
+      ),
+      child: Icon(icon),
+    );
+  }
+}
+```
