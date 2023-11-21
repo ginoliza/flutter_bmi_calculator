@@ -229,3 +229,24 @@ Navigator.push(
 ```
 ## Usando rutas
 `Navigator.pushNamed()` toma un contexto y una ruta. Las rutas deben estar previamente definidas. `MaterialApp` admite `routes` para definirlas, y ya no se usa `home` sino `initialRoute` (no pueden existir ambas).
+
+## Mapas
+Son como diccionarios, pares `key:value`.
+```dart
+// declaracion
+Map<String, int> phoneBook = {
+  'kyle' : 987654321,
+  'stan' : 978456123,
+  'eric' : 912837456,
+};
+// acceso
+print(phoneBook['kyle']);
+// si no existe, imprime null
+print(phoneBook['kenny']);
+// agregar al mapa
+phoneBook['kenny'] = 984361824;
+print(phoneBook['kenny']);
+// acceder a keys y values
+print(phoneBook.keys);
+print(phoneBook.values);
+```
