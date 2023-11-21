@@ -250,3 +250,33 @@ print(phoneBook['kenny']);
 print(phoneBook.keys);
 print(phoneBook.values);
 ```
+
+## Fijar numeros decimales de un entero
+`toStringAsFixed(<#deDecimales>)`
+
+## Pasar variables a otra pantalla
+```dart
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) => ResultsPage(
+        bmiResults: calc.calculateBMI(),
+        bmiText: calc.getResult(),
+        bmiInterpretation: calc.interpretation(),
+      ),
+    ),
+  );
+```
+
+```dart
+class ResultsPage extends StatelessWidget {
+  String bmiText;
+  String bmiResults;
+  String bmiInterpretation;
+
+  ResultsPage({required this.bmiText,
+    required this.bmiResults,
+    required this.bmiInterpretation});
+  ...  
+}
+```

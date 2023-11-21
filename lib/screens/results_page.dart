@@ -4,7 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:bmi_calculator/components/botton_button.dart';
 
 class ResultsPage extends StatelessWidget {
-  const ResultsPage({super.key});
+  String bmiText;
+  String bmiResults;
+  String bmiInterpretation;
+
+  ResultsPage(
+      {required this.bmiText,
+      required this.bmiResults,
+      required this.bmiInterpretation});
 
   @override
   Widget build(BuildContext context) {
@@ -32,17 +39,17 @@ class ResultsPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(
-                    "OVERWEIGHT",
+                    bmiText.toUpperCase(),
                     style: kResultTextStyle,
                   ),
                   Text(
-                    "26.7",
+                    bmiResults,
                     style: kBMITextStyle,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: Text(
-                      "You have a higher than normal weight. Try to exercise more",
+                      bmiInterpretation,
                       style: kBodyTextStyle,
                       textAlign: TextAlign.center,
                     ),
